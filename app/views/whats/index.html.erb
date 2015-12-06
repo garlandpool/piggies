@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+
+<!-- Services Section -->
+<section id="what">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+      <h2 class="section-heading wow animated pulse animated">What We Do</h2>
+      <hr />
+      <h3 class="section-subheading text-muted wow animated pulse animated">
+      Piggies and Paws is a home party business which focuses on the creative preservation of children's growth. Our main service is to provide a fun and creative way to preserve children's hand and foot prints. Unlike casting and plaster impressions, which are typically done only in a child's first year, our hand and foot art can be done throughout a child's lifetime, actually documenting their growth. All materials used are of the finest archival quality and always acid-free. Completion and delivery time may take up to 6-8 weeks since all work is customized to each hand or footprint. All designs will be returned mounted and ready to fit into standard sized frames.Interested in having your children done? There are three ways:
+      </h3>
+      </div>
+    </div>
+
+
+    <!-- ######################################## -->
+    
+    <% @whats.each do |what| %>
+    
+        <div class="col-sm-4">
+          <div class="textholder">
+            <div class="col-sm-12 text-center">
+              <span class="fa-stack fa-4x">
+                <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+                <!-- <i class="<%= what.font_awesome %>"></i> -->
+                <!-- <i class="#{what.font_awesome}"></i> -->
+                <!-- <i class="#{what.font_awesome}"></i> -->
+              </span>
+              <h4 class="service-heading"><%= what.title %></h4>
+            </div>
+
+            <p class="text-muted">
+              <%= what.body %>
+              <div class="col-sm-12 text-center">
+                <% if user_signed_in? %>
+                  <%= link_to 'Show', what, class: "btn btn-default btn-sm" %>
+                  <%= link_to 'Edit', edit_what_path(what), class: "btn btn-default btn-sm" %>
+                  <%= link_to 'Destroy', what, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-sm" %>
+                <% else %>
+                <% end %> 
+              </div>  
+            </p>
+
+          </div>
+        </div> 
+    <% end %>  
+       
+    <!-- ######################################## -->
+
+  </div>
+  <hr>
+  <div class="container">
+    <%= link_to 'New Item', new_what_path, class: "btn btn-default btn-lrg" %>
+  </div>
+</section>

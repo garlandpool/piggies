@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Font awesome:</strong>
+  <%= @what.font_awesome %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @what.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @what.body %>
+</p>
+
+<%= link_to 'Edit', edit_what_path(@what) %> |
+<%= link_to 'Back', whats_path %>

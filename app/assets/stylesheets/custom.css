@@ -1,0 +1,130 @@
+/* Light Blue:          #31b0d5     */
+/* Dark Blue:           #2490af     */
+
+/* Light Pink           #f1569c     */
+/* Dark Pink            #ed217c     */
+
+
+.navbar-default {
+	border-color: #FFFFFF;
+	background: #485563; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to bottom, #485563 , #29323c); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to bottom, #485563 , #29323c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+}
+
+.navbar-default .navbar-brand {
+	/*font-family: 'Aladin', cursive;*/
+	font-family: 'Kaushan Script', cursive;
+	font-size: 35px;
+	color: #f04291;
+	padding: 0;
+	margin: 0;
+}
+
+.navbar-default .navbar-brand:hover, 
+.navbar-default .navbar-brand:focus {
+	color: #FFFFFF;
+	background-color: transparent;
+}
+
+
+
+.navbar-default .navbar-nav > li > a {
+	color: #FFFFFF;
+	/*===== ADDED BY fred =====*/
+	font-size: 10px; 
+}
+
+.navbar-default .navbar-nav:hover, 
+.navbar-default .navbar-nav:focus {
+	color: green;
+	background-color: transparent;
+}
+
+.nav .navbar-nav .navbar-right {
+	padding: 10px;
+	color: white;
+}
+
+
+.copyright-header {
+	font-size: 10px;
+	color: white;
+	padding-top: 10px;
+	margin-top: 10px;
+}
+
+.textholder{
+	padding: 5px;
+    background: none repeat scroll 0 0 #fcfcfc;
+    box-shadow: 0 0 10px #cccccc;
+    transition: box-shadow 0.2s ease-in-out 0s;
+}
+
+footer {
+	background: #485563; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #272727 , #29323c); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #272727 , #29323c); 
+}
+
+
+ul.nav a:hover { color: #f1569c !important; }
+ul.nav a { color: #fff !important; }
+
+body { 
+    padding-top: 100px; 
+}
+
+/*==============    THIS WORKS FOR GIVING BACKGROUND COLOR ON HOVER	   =================*/
+/*
+.navbar .nav > li > a {
+    float: none;
+    color: #5FC8D6;
+    background-color: #002E36;
+}
+.navbar .nav > li > a:hover {
+    float: none;
+    color: #002E36;
+    background-color: #5FC8D6;
+}
+*/
+
+
+
+/*====================== TEST AREA =======================*/
+@media (min-width: 1200px) {
+	.navbar-default .navbar-brand  {
+		font-size: 40px;
+	}
+	.navbar-default .navbar-nav > li > a {
+		font-size: 10px; 
+	}
+	.navbar  {
+		min-height: 70px;
+	}
+}
+
+@media (min-width: 992px) {
+	.navbar-default .navbar-brand  {
+		font-size: 20px;
+	}
+	.navbar-default .navbar-nav > li > a {
+		font-size: 6px; 
+	}
+	.navbar  {
+		min-height: 70px;
+	}
+}
+
+@media (min-width: 768px) {
+	.navbar-default .navbar-brand  {
+		font-size: 35px;
+	}
+	.navbar-default .navbar-nav > li > a {
+		font-size: 10px; 
+	}
+	.navbar  {
+		min-height: 75px;
+	}
+}
+

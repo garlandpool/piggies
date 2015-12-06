@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+  <title>Piggies+Paws</title>
+  
+    <% if true %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <% end %>
+
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/theme.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/animate.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/icons/favicon.ico">
+	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="css/flexslider.css" rel="stylesheet">
+	<link href="css/jquery.bxslider.css" rel="stylesheet">
+	<link href="css/layerslider.css" rel="stylesheet">
+
+    <link href="css/custom.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="/">Piggies+Paws</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li><%= link_to "Our Story", {:controller => 'stories', :action => 'index'} %></li>
+                    <li><%= link_to "What We Do", {:controller => 'whats', :action => 'index'} %></li>
+                    <li><%= link_to "How It Works", {:controller => 'how_it_works', :action => 'index'} %></li>
+                    <li><%= link_to "gallery", {:controller => 'gallery', :action => 'index'} %></li>
+                    <li><%= link_to "host a party", {:controller => 'artists', :action => 'index'} %></li>
+                    <li><%= link_to "join our team", {:controller => 'team', :action => 'index'} %></li>
+                    <li><%= link_to "media", {:controller => 'media', :action => 'index'} %></li>
+                    <li><%= link_to "contact", {:controller => 'contact', :action => 'index'} %></li>
+                    <li><%= link_to "artist login", {:controller => 'artists', :action => 'index'} %></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+<%= yield %>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<%= render(:partial => "layouts/footer") %>
+
+</body>
+</html>
