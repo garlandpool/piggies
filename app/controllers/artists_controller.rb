@@ -3,9 +3,32 @@ class ArtistsController < ApplicationController
 
   # GET /artists
   # GET /artists.json
-  def index
-    @artists = Artist.all
+  def index_ORIGINAL
+    @artists = Artist.all.order("created_at DESC")
+    @user = User.find_by_email!(params[@artists.email])
   end
+
+  def index
+    if params[:email].blank?
+      @artists = Artist.all.order("created_at DESC")
+    else
+      # @user_id = User.find_by(name: params[:email]).id
+      @user_email = User.find_by(params[:email]).email
+      @artists = Job.where(email: @user_email).order("created_at DESC")
+    end
+  end
+
+# =============================
+  def index_from_jobs
+    if params[:category].blank?
+      @jobs = Job.all.order("created_at DESC")
+    else
+      @category_id = Category.find_by(name: params[:category]).id
+      @jobs = Job.where(category_id: @category_id).order("created_at DESC")
+    end
+  end
+# =============================
+
 
   # GET /artists/1
   # GET /artists/1.json
@@ -19,6 +42,9 @@ class ArtistsController < ApplicationController
 
   # GET /artists/1/edit
   def edit
+    #  EXPERIMENTAL LINE...PROBABLY DELETE LATER...
+    #  IT WOULD DEPEND ON ADDING user_id TO ARTISTS TABLE
+    # @artist.user_id = current_user.artist_id
   end
 
   # POST /artists

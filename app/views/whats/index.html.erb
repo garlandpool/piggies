@@ -35,7 +35,7 @@
             <p class="text-muted">
               <%= what.body %>
               <div class="col-sm-12 text-center">
-                <% if user_signed_in? %>
+                <% if current_user.try(:admin?) %>
                   <%= link_to 'Show', what, class: "btn btn-default btn-sm" %>
                   <%= link_to 'Edit', edit_what_path(what), class: "btn btn-default btn-sm" %>
                   <%= link_to 'Destroy', what, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-sm" %>
@@ -53,6 +53,8 @@
   </div>
   <hr>
   <div class="container">
-    <%= link_to 'New Item', new_what_path, class: "btn btn-default btn-lrg" %>
+    <% if current_user.try(:admin?) %>
+      <%= link_to 'New Item', new_what_path, class: "btn btn-default btn-lrg" %>
+    <% end %>
   </div>
 </section>

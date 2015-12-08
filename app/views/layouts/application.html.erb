@@ -61,24 +61,32 @@
                     </li>
                     <li><%= link_to "Our Story", {:controller => 'stories', :action => 'index'} %></li>
                     <li><%= link_to "What We Do", {:controller => 'whats', :action => 'index'} %></li>
-                    <li><%= link_to "How It Works", {:controller => 'how_it_works', :action => 'index'} %></li>
+                    <li><%= link_to "How It Works", {:controller => 'hows', :action => 'index'} %></li>
                     <li><%= link_to "gallery", {:controller => 'gallery', :action => 'index'} %></li>
                     <li><%= link_to "host a party", {:controller => 'artists', :action => 'index'} %></li>
                     <li><%= link_to "join our team", {:controller => 'team', :action => 'index'} %></li>
                     <li><%= link_to "media", {:controller => 'media', :action => 'index'} %></li>
-                    <li><%= link_to "contact", {:controller => 'contact', :action => 'index'} %></li>
-                    <li><%= link_to "artist login", {:controller => 'artists', :action => 'index'} %></li>
+
+                    <% if false %>
+                        <li><%= link_to "contact", {:controller => 'contact', :action => 'index'} %></li>
+                    <% end %>
+
+                    <% if user_signed_in? %>
+                        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+                    <% else %>
+                        <li><%= link_to "Login", new_user_session_path %></li>
+                    <% end %>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
+<% flash.each do |name, msg| %>
+    <%= content_tag(:div, msg, class: "alert alert-info" ) %>
+<% end %>
 
 <%= yield %>
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
 
 <%= render(:partial => "layouts/footer") %>
 

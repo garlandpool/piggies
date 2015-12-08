@@ -1,61 +1,53 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <!-- ================================== -->
+  <div class="row">
+    <div class="col-sm-12">
+      <h2 class="section-heading wow animated pulse animated">Listing Artists</h2>
+    </div>
+    <h3 class="section-subheading text-muted wow animated pulse animated">
+      Find an artist near you.  Email them to set up a gallery.  
+    </h3>
+    <hr/>
+  </div>
 
-<h1>Listing Artists</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>First</th>
-      <th>Last</th>
-      <th>Title</th>
-      <th>Email</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zipcode</th>
-      <th>Bday</th>
-      <th>Bmonth</th>
-      <th>Byear</th>
-      <th>Homephone</th>
-      <th>Cellphone</th>
-      <th>Officephone</th>
-      <th>Zipareas</th>
-      <th>Contract day</th>
-      <th>Contract month</th>
-      <th>Contract year</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @artists.each do |artist| %>
-      <tr>
-        <td><%= artist.first %></td>
-        <td><%= artist.last %></td>
-        <td><%= artist.title %></td>
-        <td><%= artist.email %></td>
-        <td><%= artist.address %></td>
-        <td><%= artist.city %></td>
-        <td><%= artist.state %></td>
-        <td><%= artist.zipcode %></td>
-        <td><%= artist.bday %></td>
-        <td><%= artist.bmonth %></td>
-        <td><%= artist.byear %></td>
-        <td><%= artist.homephone %></td>
-        <td><%= artist.cellphone %></td>
-        <td><%= artist.officephone %></td>
-        <td><%= artist.zipareas %></td>
-        <td><%= artist.contract_day %></td>
-        <td><%= artist.contract_month %></td>
-        <td><%= artist.contract_year %></td>
-        <td><%= link_to 'Show', artist %></td>
-        <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
-        <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+  <!-- ================================== -->
+  <% @artists.each do |artist| %>
+  <div class="row">
+    <div class="col-sm-2">
+      <strong><%= artist.first %> <%= artist.last %></strong>
+    </div>
+    <div class="col-sm-1">
+      <%= mail_to artist.email, class: "fa fa-envelope  wow animated zoomIn animation-delay-5" do %>
+      <% end %>
+    </div>
+    <div class="col-sm-2">
+      <%= artist.city %>, <%= artist.state %>
+    </div>
+    <div class="col-sm-3">
+      <%= artist.email %>
+      <!-- <%= artist.id %> -->
+    </div>
+    <% if user_signed_in? %>
+      <% if current_user.try(:admin?) || current_user.email == artist.email %>
+        <div class="col-sm-3">
+          <%= link_to 'Show', artist, class: "btn btn-sm btn-default" %>
+          <%= link_to 'Edit', edit_artist_path(artist), class: "btn btn-sm btn-default" %>
+          <%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %>
+        </div>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
+  </div>
+  <hr/>
+  <% end %>
+  <br/>
 
-<br>
-
-<%= link_to 'New Artist', new_artist_path %>
+  <!-- ================================== -->
+  <% if current_user.try(:admin?) %>
+    <div class="row">
+      <div class="col-sm-12">
+        <h5><%= link_to 'New Artist', new_artist_path, class: "btn btn-sm btn-default" %></h5>
+      </div>
+    </div>
+  <% end %>
+  <!-- ================================== -->
+</div>

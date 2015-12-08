@@ -1,3 +1,29 @@
+<!-- 
+= simple_form_for(@job, html: { class: 'form-horizontal'}) do |f|
+  = f.collection_select :category_id, Category.all, :id, :name, {promt: "Choose a category" }, input_html: { class: "dropdown-toggle" }
+  = f.input :title, label: "Job Title", input_html: { class: "form-control" }
+  = f.input :description, label: "Job Description", input_html: { class: "form-control" }
+  = f.input :company, label: "Your Company", input_html: { class: "form-control" }
+  = f.input :url, label: "Link to Job", input_html: { class: "form-control" }
+  %br/
+  = f.button :submit 
+-->
+
+
+
+<!-- <div class="drop_down">
+  <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+    <li role="presentation"><a role="menuitem" href="#">HTML</a></li>
+    <li role="presentation"><a role="menuitem" href="#">CSS</a></li>
+    <li role="presentation"><a role="menuitem" href="#">JavaScript</a></li>
+    <li role="presentation" class="divider"></li>
+    <li role="presentation"><a role="menuitem" href="#">About Us</a></li>
+  </ul>
+</div> -->
+
+
 <%= form_for(@artist) do |f| %>
   <% if @artist.errors.any? %>
     <div id="error_explanation">
@@ -10,81 +36,137 @@
       </ul>
     </div>
   <% end %>
-  <div class="panel-body">
-    <div class="field">
-      <%= f.label :first %><br>
-      <%= f.text_field :first, { class: 'form-control' } %>
+
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="field">
+        <!-- <p><%= current_user.email %></p> -->
+        <%= f.label :first %><br>
+        <%= f.text_field :first, { class: 'form-control' } %>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :last %><br>
-      <%= f.text_field :last, { class: 'form-control' } %>
+    <div class="col-sm-2">
+      <div class="field">
+        <%= f.label :last %><br>
+        <%= f.text_field :last, { class: 'form-control' } %>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :title %><br>
-      <%= f.text_field :title, { class: 'form-control' } %>
+    <div class="col-sm-2">   
+      <div class="field">
+        <%= f.label :title %><br>
+        <%= f.text_field :title, { class: 'form-control' } %>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :email %><br>
-      <%= f.text_field :email, { class: 'form-control' } %>
+    <% if current_user.try(:admin?) %>
+      <div class="col-sm-2">
+        <div class="field">
+          <%= f.label :email %><br>
+          <%= f.collection_select :email, User.all, :email, :email, {promt: "Choose an email" }, input_html: { class: "btn btn-primary dropdown-toggle" } %>
+        </div>
+      </div>
+    <% else %>
+      <div class="col-sm-2">
+        <div class="field">
+          <%= f.label :email %><br>
+          <%= current_user.email %>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3">   
+      <div class="field">
+        <%= f.label :address %><br>
+        <%= f.text_field :address, { class: 'form-control' } %>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :address %><br>
-      <%= f.text_field :address, { class: 'form-control' } %>
+    <div class="col-sm-2">   
+      <div class="field">
+        <%= f.label :city %><br>
+        <%= f.text_field :city, { class: 'form-control' } %>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :city %><br>
-      <%= f.text_field :city, { class: 'form-control' } %>
+    <div class="col-sm-2">   
+      <div class="field">
+        <%= f.label :state %><br>
+        <%= f.text_field :state, { class: 'form-control' } %>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :state %><br>
-      <%= f.text_field :state, { class: 'form-control' } %>
+    <div class="col-sm-2">   
+      <div class="field">
+        <%= f.label :zipcode %><br>
+        <%= f.number_field :zipcode, { class: 'form-control' } %>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :zipcode %><br>
-      <%= f.number_field :zipcode, { class: 'form-control' } %>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">   
+      <div class="field">
+        <%= f.label :bday %><br>
+        <%= f.number_field :bday, { class: 'form-control' } %>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :bday %><br>
-      <%= f.number_field :bday, { class: 'form-control' } %>
+    <div class="col-sm-2">   
+      <div class="field">
+        <%= f.label :bmonth %><br>
+        <%= f.number_field :bmonth, { class: 'form-control' } %>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :bmonth %><br>
-      <%= f.number_field :bmonth, { class: 'form-control' } %>
+    <div class="col-sm-2">   
+      <div class="field">
+        <%= f.label :byear %><br>
+        <%= f.number_field :byear, { class: 'form-control' } %>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :byear %><br>
-      <%= f.number_field :byear, { class: 'form-control' } %>
+    <div class="col-sm-2">   
+      <div class="field">
+        <%= f.label :homephone %><br>
+        <%= f.text_field :homephone, { class: 'form-control' } %>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :homephone %><br>
-      <%= f.text_field :homephone, { class: 'form-control' } %>
+    <div class="col-sm-2">   
+      <div class="field">
+        <%= f.label :cellphone %><br>
+        <%= f.text_field :cellphone, { class: 'form-control' } %>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :cellphone %><br>
-      <%= f.text_field :cellphone, { class: 'form-control' } %>
+    <div class="col-sm-2">   
+      <div class="field">
+        <%= f.label :officephone %><br>
+        <%= f.text_field :officephone, { class: 'form-control' } %>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :officephone %><br>
-      <%= f.text_field :officephone, { class: 'form-control' } %>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">   
+      <div class="field">
+        <%= f.label :zipareas %><br>
+        <%= f.number_field :zipareas, { class: 'form-control' } %>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :zipareas %><br>
-      <%= f.number_field :zipareas, { class: 'form-control' } %>
+    <div class="col-sm-2">   
+      <div class="field">
+        <%= f.label :contract_day %><br>
+        <%= f.number_field :contract_day, { class: 'form-control' } %>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :contract_day %><br>
-      <%= f.number_field :contract_day, { class: 'form-control' } %>
+    <div class="col-sm-2">   
+      <div class="field">
+        <%= f.label :contract_month %><br>
+        <%= f.number_field :contract_month, { class: 'form-control' } %>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :contract_month %><br>
-      <%= f.number_field :contract_month, { class: 'form-control' } %>
+    <div class="col-sm-2">   
+      <div class="field">
+        <%= f.label :contract_year %><br>
+        <%= f.number_field :contract_year, { class: 'form-control' } %>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :contract_year %><br>
-      <%= f.number_field :contract_year, { class: 'form-control' } %>
-    </div>
+  </div>
     <div class="actions">
       <%= f.submit %>
     </div>
-  </div>
+
 <% end %>

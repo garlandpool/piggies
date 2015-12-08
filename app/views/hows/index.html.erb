@@ -1,0 +1,60 @@
+
+
+<!-- Services Section -->
+<section id="what">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h2 class="section-heading wow animated pulse animated">How it works</h2>
+        <hr/>
+        <h3 class="section-subheading text-muted wow animated pulse animated"></h3>
+      </div>
+    </div>
+  <p id="notice"><%= notice %>
+    <!-- ######################################## -->
+
+    <% @hows.each do |how| %>
+        <div class="col-sm-4">
+          <div class="textholder">
+            <div class="col-sm-12 text-center">
+              <span class="fa-stack fa-4x">
+                <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                <i class="fa fa-briefcase fa-stack-1x fa-inverse"></i>
+              </span>
+              <h4 class="service-heading"><%= how.title %></h4>
+            </div>
+            <p class="text-muted">
+              <%= how.body %>
+              <div class="col-sm-12 text-center">
+                <% if current_user.try(:admin?) %>
+                  <%= link_to 'Show', how, class: "btn btn-default btn-sm" %>
+                  <%= link_to 'Edit', edit_how_path(how), class: "btn btn-default btn-sm" %>
+                  <%= link_to 'Destroy', how, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-sm" %>
+                <% else %>
+                <% end %> 
+              </div>  
+            </p>
+          </div>
+        </div> 
+    <% end %> 
+
+  </div>
+  <hr>
+  <div class="container">
+    <% if current_user.try(:admin?) %>
+      <%= link_to 'New Item', new_how_path, class: "btn btn-default btn-lrg" %>
+    <% end %> 
+  </div>
+</section>
+    <!-- ######################################## -->
+
+
+
+
+
+
+
+
+
+
+

@@ -32,17 +32,15 @@
         <%= story.status %></br>
         <%= story.company %></br>
         <% if true %>
-          <% if user_signed_in? %>
+          <% if current_user.try(:admin?) %>
             <strong>Currently logged in as <%= current_user.email %></strong>
             <p>
-            <%= link_to 'Show', story %>
-            <%= link_to 'Edit', edit_story_path(story) %>
-            <%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Show', story, class: "btn btn-default btn-sm" %>
+            <%= link_to 'Edit', edit_story_path(story), class: "btn btn-default btn-sm" %>
+            <%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-sm" %>
             <hr/>
-            <%= link_to 'New Story', new_story_path %>
+            <%= link_to 'New Story', new_story_path, class: "btn btn-default btn-sm" %>
             </p>
-          <% else %>
-            Not logged in
           <% end %>
         <% end %>
     <% end %>
