@@ -1,0 +1,58 @@
+<!-- ############################ -->
+
+<div class="container">
+
+  <%= link_to "Manage Hosts", {:controller => 'hosts', :action => 'index'}, class: "btn btn-sm btn-default" %>
+  <!-- ================================== -->
+  <div class="row">
+    <div class="col-sm-12">
+      <h2 class="section-heading wow animated pulse animated">Listing Artists</h2>
+    </div>
+    <h3 class="section-subheading text-muted wow animated pulse animated">
+      Here is a list of the hosts you have served or are serving.   
+    </h3>
+    <hr/>
+  </div>
+
+  <!-- ================================== -->
+  <% @hosts.each do |host| %>
+  <div class="row">
+    <div class="col-sm-2">
+      <strong><%= host.first %> <%= host.last %></strong>
+    </div>
+    <div class="col-sm-2">
+      <%= host.street %>
+    </div>
+    <div class="col-sm-2">
+      <%= host.city %>, <%= host.state %>
+    </div>
+    <div class="col-sm-1">
+      <%= host.zipcode %>
+    </div>
+    <div class="col-sm-1">
+      <%= host.user_id %>
+    </div>
+
+    <% if user_signed_in? %>
+      <div class="col-sm-3">
+        <%= link_to 'Show', host, class: "btn btn-sm btn-default" %>
+        <%= link_to 'Edit', edit_host_path(host), class: "btn btn-sm btn-default" %>
+        <%= link_to 'Destroy', host, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %>
+      </div>
+    <% end %>
+  </div>
+  <hr/>
+  <% end %>
+
+  <br/>
+
+  <!-- ================================== -->
+  <% if user_signed_in? %>
+    <div class="row">
+      <div class="col-sm-12">
+        <h5><%= link_to 'New host', new_host_path, class: "btn btn-sm btn-default" %></h5>
+      </div>
+    </div>
+  <% end %>
+  <!-- ================================== -->
+</div>

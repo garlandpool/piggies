@@ -1,0 +1,62 @@
+<!-- ###################### -->
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm-6"> 
+        <p>
+          <strong>First:</strong>
+          <%= @host.first %>
+        </p>
+
+        <p>
+          <strong>Last:</strong>
+          <%= @host.last %>
+        </p>
+
+        <p>
+          <strong>Street:</strong>
+          <%= @host.street %>
+        </p>
+
+        <p>
+          <strong>City:</strong>
+          <%= @host.city %>
+        </p>
+
+        <p>
+          <strong>State:</strong>
+          <%= @host.state %>
+        </p>
+
+        <p>
+          <strong>Zipcode:</strong>
+          <%= @host.zipcode %>
+        </p>
+
+        <p>
+          <strong>H phone:</strong>
+          <%= @host.h_phone %>
+        </p>
+
+        <p>
+          <strong>C phone:</strong>
+          <%= @host.c_phone %>
+        </p>
+
+        <p>
+          <strong>Visible:</strong>
+          <%= @host.visible %>
+        </p>
+
+        <p>
+          <strong>User:</strong>
+          <%= @host.user_id %>
+        </p>
+
+        <%= link_to 'Edit', edit_host_path(@host), class: "btn btn-sm btn-default" %> |
+        <%= link_to 'Back', hosts_path, class: "btn btn-sm btn-default" %>
+
+    </div>
+  </div>
+</div>
+<br/>
