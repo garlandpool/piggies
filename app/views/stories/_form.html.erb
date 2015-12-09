@@ -10,28 +10,41 @@
       </ul>
     </div>
   <% end %>
+  <div class="row">
+    <div class="col-sm-6">   
+      <div class="field">
+        <%= f.label :intro %><br>
+        <%= f.text_field :intro, { class: 'form-control' } %>
+      </div>
+   
+      <div class="field">
+        <%= f.label :body %><br>
+        <%= f.text_area :body, { class: 'form-control' } %>
+      </div>
+  
+      <div class="field">
+        <%= f.label :signature %><br>
+        <%= f.text_field :signature, { class: 'form-control' } %>
+      </div>
+   
+      <div class="field">
+        <%= f.label :status %><br>
+        <%= f.text_field :status, { class: 'form-control' } %>
+      </div>
+  
+      <div class="field">
+        <%= f.label :company %><br>
+        <%= f.text_field :company, { class: 'form-control' } %>
+      </div>
 
-  <div class="field">
-    <%= f.label :intro %><br>
-    <%= f.text_field :intro %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </div>
-  <div class="field">
-    <%= f.label :signature %><br>
-    <%= f.text_field :signature %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :company %><br>
-    <%= f.text_field :company %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+      <br/>
+
+      <div class="actions">
+        <%= f.submit class: 'btn btn-primary' %>
+      </div>
+    </div>
+</div>
+
+
+
 <% end %>

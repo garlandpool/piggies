@@ -1,19 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  	<div class="row">
+    	<div class="col-sm-6"> 
+			<p>
+			  <strong>Symbol:</strong>
+			  <%= @how.symbol %>
+			</p>
 
-<p>
-  <strong>Symbol:</strong>
-  <%= @how.symbol %>
-</p>
+			<p>
+			  <strong>Title:</strong>
+			  <%= @how.title %>
+			</p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @how.title %>
-</p>
+			<p>
+			  <strong>Body:</strong>
+			  <%= @how.body %>
+			</p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @how.body %>
-</p>
-
-<%= link_to 'Edit', edit_how_path(@how) %> |
-<%= link_to 'Back', hows_path %>
+			<%= link_to 'Edit', edit_how_path(@how), class: "btn btn-default btn-sm" %>
+			<%= link_to 'Back', hows_path, class: "btn btn-default btn-sm" %>
+		</div>
+	</div>
+</div>
+<br/>

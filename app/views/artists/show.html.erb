@@ -1,96 +1,99 @@
 <div class="container">
-    <p id="notice"><%= notice %></p>
+    <div class="row">
+      <div class="col-sm-6"> 
+        <p>
+          <strong>First:</strong>
+          <%= @artist.first %>
+        </p>
 
-    <p>
-      <strong>First:</strong>
-      <%= @artist.first %>
-    </p>
+        <p>
+          <strong>Last:</strong>
+          <%= @artist.last %>
+        </p>
 
-    <p>
-      <strong>Last:</strong>
-      <%= @artist.last %>
-    </p>
+        <p>
+          <strong>Title:</strong>
+          <%= @artist.title %>
+        </p>
 
-    <p>
-      <strong>Title:</strong>
-      <%= @artist.title %>
-    </p>
+        <p>
+          <strong>Email:</strong>
+          <%= @artist.email %>
+        </p>
 
-    <p>
-      <strong>Email:</strong>
-      <%= @artist.email %>
-    </p>
+        <p>
+          <strong>Address:</strong>
+          <%= @artist.address %>
+        </p>
 
-    <p>
-      <strong>Address:</strong>
-      <%= @artist.address %>
-    </p>
+        <p>
+          <strong>City:</strong>
+          <%= @artist.city %>
+        </p>
 
-    <p>
-      <strong>City:</strong>
-      <%= @artist.city %>
-    </p>
+        <p>
+          <strong>State:</strong>
+          <%= @artist.state %>
+        </p>
 
-    <p>
-      <strong>State:</strong>
-      <%= @artist.state %>
-    </p>
+        <p>
+          <strong>Zipcode:</strong>
+          <%= @artist.zipcode %>
+        </p>
 
-    <p>
-      <strong>Zipcode:</strong>
-      <%= @artist.zipcode %>
-    </p>
+        <p>
+          <strong>Bday:</strong>
+          <%= @artist.bday %>
+        </p>
 
-    <p>
-      <strong>Bday:</strong>
-      <%= @artist.bday %>
-    </p>
+        <p>
+          <strong>Bmonth:</strong>
+          <%= @artist.bmonth %>
+        </p>
 
-    <p>
-      <strong>Bmonth:</strong>
-      <%= @artist.bmonth %>
-    </p>
+        <p>
+          <strong>Byear:</strong>
+          <%= @artist.byear %>
+        </p>
 
-    <p>
-      <strong>Byear:</strong>
-      <%= @artist.byear %>
-    </p>
+        <p>
+          <strong>Homephone:</strong>
+          <%= @artist.homephone %>
+        </p>
 
-    <p>
-      <strong>Homephone:</strong>
-      <%= @artist.homephone %>
-    </p>
+        <p>
+          <strong>Cellphone:</strong>
+          <%= @artist.cellphone %>
+        </p>
 
-    <p>
-      <strong>Cellphone:</strong>
-      <%= @artist.cellphone %>
-    </p>
+        <p>
+          <strong>Officephone:</strong>
+          <%= @artist.officephone %>
+        </p>
 
-    <p>
-      <strong>Officephone:</strong>
-      <%= @artist.officephone %>
-    </p>
+        <p>
+          <strong>Zipareas:</strong>
+          <%= @artist.zipareas %>
+        </p>
 
-    <p>
-      <strong>Zipareas:</strong>
-      <%= @artist.zipareas %>
-    </p>
+        <p>
+          <strong>Contract day:</strong>
+          <%= @artist.contract_day %>
+        </p>
 
-    <p>
-      <strong>Contract day:</strong>
-      <%= @artist.contract_day %>
-    </p>
+        <p>
+          <strong>Contract month:</strong>
+          <%= @artist.contract_month %>
+        </p>
 
-    <p>
-      <strong>Contract month:</strong>
-      <%= @artist.contract_month %>
-    </p>
+        <p>
+          <strong>Contract year:</strong>
+          <%= @artist.contract_year %>
+        </p>
 
-    <p>
-      <strong>Contract year:</strong>
-      <%= @artist.contract_year %>
-    </p>
-
-    <%= link_to 'Edit', edit_artist_path(@artist) %> |
-    <%= link_to 'Back', artists_path %>
+        <%= link_to 'Edit', edit_artist_path(@artist), class: "btn btn-sm btn-default" %>
+        <%= link_to 'Back', artists_path, class: "btn btn-sm btn-default" %>
+    </div>
+  </div>
 </div>
+<br/>

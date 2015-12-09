@@ -119,14 +119,13 @@ body {
 		min-height: 40px;
 	}
 
-	.navbar, .navbar div, .navbar-brand, .navbar-header {
+/*	.navbar, .navbar div, .navbar-brand, .navbar-header {
 	 min-height: 40px;
 	 max-height: 40px;
 	 height: 40px;
 	}
-	/* Additional styles to style some of your child elements */
 	.navbar .navbar-brand { padding: 5px; }
-	.navbar .navbar-toggle { padding: 4px 5px; }
+	.navbar .navbar-toggle { padding: 4px 5px; }*/
 }
 
 @media (min-width: 992px) {

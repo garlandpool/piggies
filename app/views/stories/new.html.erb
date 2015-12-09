@@ -1,5 +1,12 @@
-<h1>New Story</h1>
+<div class="container">
+	<h1>New Story</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', stories_path %>
+	<%= render 'form' %>
+	<div class="row">
+		<p>
+		<br/>
+		<%= link_to 'Back', stories_path, class: "btn btn-default btn-sm" %>
+		</p>
+	</div>
+	<br/>
+</div>

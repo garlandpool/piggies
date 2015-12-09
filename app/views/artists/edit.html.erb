@@ -2,8 +2,11 @@
 	<h1>Editing Artist</h1>
 
 	<%= render 'form' %>
-
-	<%= link_to 'Show', @artist %> |
-	<%= link_to 'Back', artists_path %>
-
+	<div class="row">
+		<p>
+		<br/>
+		<%= link_to 'Show', @artist, class: "btn btn-sm btn-default" %>
+		<%= link_to 'Back', artists_path, class: "btn btn-sm btn-default" %>
+		</p>
+	</div>
 </div>

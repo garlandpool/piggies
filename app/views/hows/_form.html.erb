@@ -11,19 +11,30 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :symbol %><br>
-    <%= f.text_field :symbol %>
+  <div class="row">
+    <div class="col-sm-6">  
+      <div class="field">
+        <%= f.label :symbol %><br>
+        <%= f.text_field :symbol, { class: 'form-control' } %>
+      </div>
+  
+      <div class="field">
+        <%= f.label :title %><br>
+        <%= f.text_field :title, { class: 'form-control' } %>
+      </div>
+   
+      <div class="field">
+        <%= f.label :body %><br>
+        <%= f.text_area :body, { class: 'form-control' } %>
+      </div>
+
+
+    <br/>
+
+    <div class="actions">
+      <%= f.submit class: 'btn btn-primary' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
 <% end %>
+

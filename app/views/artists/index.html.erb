@@ -32,7 +32,9 @@
         <div class="col-sm-3">
           <%= link_to 'Show', artist, class: "btn btn-sm btn-default" %>
           <%= link_to 'Edit', edit_artist_path(artist), class: "btn btn-sm btn-default" %>
-          <%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %>
+          <% if current_user.try(:admin?) %>
+            <%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %>
+          <% end %>
         </div>
       <% end %>
     <% end %>
