@@ -5,12 +5,9 @@
             <div class="container">
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <% if false %>
-                            <!-- <li><%= link_to 'Edit', edit_artist_path(current_user.id), class: "btn btn-sm btn-default" %></li> -->
-                        <% end %>
-                        <li><%= link_to "Manage Profile", {:controller => 'artists', :action => 'edit'} %></li>
-                        <li><%= link_to "Manage Hosts", {:controller => 'manage_hosts', :action => 'index'} %></li>
-                        <li><%= link_to "Manage Galleries", {:controller => 'manage_galleries', :action => 'index'} %></li>
+                        <li><%= link_to "Hosts", {:controller => 'hosts', :action => 'index', :id => current_user.id } %></li>
+                        <li><%= link_to "Galleries", {:controller => 'galleries', :action => 'index'} %></li>
+                        <li><%= link_to "Profile", {:controller => 'artists', :action => 'edit', :id => current_user.id } %></li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->

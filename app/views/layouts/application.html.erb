@@ -67,10 +67,6 @@
                     <li><%= link_to "join our team", {:controller => 'team', :action => 'index'} %></li>
                     <li><%= link_to "media", {:controller => 'media', :action => 'index'} %></li>
 
-                    <% if false %>
-                        <li><%= link_to "contact", {:controller => 'contact', :action => 'index'} %></li>
-                    <% end %>
-
                     <% if user_signed_in? %>
                         <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
                     <% else %>
@@ -84,6 +80,10 @@
     </nav>
 <% flash.each do |name, msg| %>
     <%= content_tag(:div, msg, class: "alert alert-info" ) %>
+<% end %>
+
+<% if user_signed_in? %>
+    <%= render(:partial => "layouts/backend") %>
 <% end %>
 
 <%= yield %>
