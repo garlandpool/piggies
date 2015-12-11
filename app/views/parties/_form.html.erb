@@ -19,11 +19,14 @@
         <%= f.number_field :host_id, { class: 'form-control' } %>
       </div>
       <% end %>
-      <!-- ######## -->
+<!-- ########################################################### 
+KEY LEARNING POINT:  Learned how to write def in the model to compose :first and :last into a :fullname to display here:
+For more details look into the HOST model.  ALSO:  Figured out the syntax for styling this selector...see class: below
+###########################################################  -->
       <% if true %>
       <div class="field">
         <%= f.label :host_id %><br>
-        <%= f.collection_select :host_id, Host.all, :id, :fullname, {prompt: "Choose an email" }, input_html: { class: "btn btn-primary dropdown-toggle" } %>
+        <%= f.collection_select :host_id, Host.all, :id, :fullname, {prompt: "Choose host" }, {class: "form-control"} %>
       </div>
       <% end %>
 
@@ -31,19 +34,21 @@
       <% if false %>
       <div class="field">
         <%= f.label :host_id %><br>
-        <%= f.collection_select :host_id, Host.all, :id, :last, {promt: "Choose an email" }, input_html: { class: "btn btn-primary dropdown-toggle" } %>
+        <%= f.collection_select :host_id, Host.all, :id, :last, {prompt: "Choose an email" }, {class: "form-control"} %>
       </div>
       <% end %>
 <!-- ############################################################## -->
 
 
 <br/>
-
+<!-- ########################################################### 
+KEY LEARNING POINT:  Learned a HACK to deal with styling this datetime selector
+###########################################################  -->
       <div class="field">
         <%= f.label :date %><br>
-        <div class="controls">
-          <%= f.datetime_select :date, class: "control-label" %>
-        </div>
+          <span class="form_element">
+            <%= f.datetime_select :date, input_html: { class: "form-control" } %>
+          </span>
       </div>
 <br/>
 
@@ -52,24 +57,27 @@
         <%= f.number_field :duration, { class: 'form-control' } %>
       </div>
 <br/>
-
-      <div class="field">
-        <%= f.label :canceled %><br>
-        <%= f.check_box :canceled %>
-      </div>
-<br/>
-
-      <div class="field">
-        <%= f.label :user_id %><br>
-        <%= f.text_field :user_id, { class: 'form-control' } %>
+      <div class="col-sm-3">
+        <div class="field">
+          <%= f.label :canceled %>
+          <%= f.check_box :canceled %>
+        </div>
       </div>
 
+      <div class="col-sm-3">
+          <div class="field">
+            <%= f.label :user_id %>
+            <!-- ########################################################### 
+            KEY LEARNING POINT:  Learned how to just display text that can't be edited, even though it shows up in the form.###########################################################  -->
+            <%= f.object.user_id %>
+          </div>
+      </div>
 
     </div>
 </div>
 <br/>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

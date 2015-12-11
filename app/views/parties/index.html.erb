@@ -10,25 +10,45 @@
   
 <hr/>
   <!-- ================================== -->
-  <% @parties.each do |party| %>
   <div class="row">
-    <div class="col-sm-1">
-      <%= party.host_id %>
+    <div class="col-sm-2">
+      <strong>First Last (ID)</strong>
     </div>
     <div class="col-sm-2">
-      <%= party.host.first %> <%=party.host.last %>
+      <strong>DateTime</strong>
+    </div>
+    <div class="col-sm-1">
+      <strong>Duration</strong>
+    </div>
+    <div class="col-sm-1">
+      <strong>Canceled?</strong>
+    </div>
+    <div class="col-sm-2">
+      <strong>Artist</strong>
+    </div>
+    <hr/>
+  </div>
+
+
+  <% @parties.each do |party| %>
+  <div class="row">
+    <div class="col-sm-2">
+<!-- ########################################################### 
+KEY LEARNING POINT:  Learned how to reach through the associated models to grab the "party.host.first" etc.
+###########################################################  -->
+      <%= party.host.first %> <%=party.host.last %> (<%= party.host_id %>)
     </div>
     <div class="col-sm-2">
       <%= party.date %>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-1">
       <%= party.duration %> hours
     </div>
     <div class="col-sm-1">
       <%= party.canceled %>
     </div>
-    <div class="col-sm-1">
-      <%= party.user_id %>
+    <div class="col-sm-2">
+      <%= party.user.email %> (<%= party.user_id %>)
     </div>
 
     <% if user_signed_in? %>

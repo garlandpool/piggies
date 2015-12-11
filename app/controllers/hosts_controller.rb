@@ -2,14 +2,14 @@ class HostsController < ApplicationController
   before_action :set_host, only: [:show, :edit, :update, :destroy]
 
   def index
+########################################################### 
+# KEY LEARNING POINT:  Learned how to only show the hosts that belong to this user
+########################################################### 
     @hosts = Host.joins(:user).where(:users => { :id => current_user.id })
-    # @info = Host.joins(:user).where(:users => { :id => current_user.id }).to_sql
   end
 
   def show
   end
-
-
 
   def new
     @host = current_user.hosts.build 
@@ -19,7 +19,6 @@ class HostsController < ApplicationController
   end
 
   def create
-    # @host = Host.new(host_params)
     @host = current_user.hosts.build(host_params)
 
     respond_to do |format|
@@ -54,12 +53,11 @@ class HostsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_host
       @host = Host.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def host_params
       params.require(:host).permit(:first, :last, :street, :city, :state, :zipcode, :h_phone, :c_phone, :visible, :user_id)
     end

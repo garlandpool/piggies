@@ -34,7 +34,7 @@
       <div class="col-sm-2">
         <div class="field">
           <%= f.label :email %><br>
-          <%= f.collection_select :email, User.all, :email, :email, {promt: "Choose an email" }, input_html: { class: "btn btn-primary dropdown-toggle" } %>
+          <%= f.collection_select :email, User.all, :email, :email, {promt: "Choose an email" }, {class: "form-control"} %>
         </div>
       </div>
     <% else %>

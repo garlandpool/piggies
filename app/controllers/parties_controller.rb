@@ -1,32 +1,27 @@
 class PartiesController < ApplicationController
   before_action :set_party, only: [:show, :edit, :update, :destroy]
 
-  # GET /parties
-  # GET /parties.json
   def index
+########################################################### 
+# KEY LEARNING POINT:  Learned how to only show the parties that belong to this user
+########################################################### 
     @parties = Party.joins(:user).where(:users => { :id => current_user.id })
-    # @host = Host.find(@parties.host_id)
   end
 
-  # GET /parties/1
-  # GET /parties/1.json
   def show
   end
 
-  # GET /parties/new
   def new
-    # @party = Party.new
+########################################################### 
+# KEY LEARNING POINT:  Learned how to assign the current_user to the party
+########################################################### 
     @party = current_user.parties.build
   end
 
-  # GET /parties/1/edit
   def edit
   end
 
-  # POST /parties
-  # POST /parties.json
   def create
-    # @party = Party.new(party_params)
     @party = current_user.parties.build(party_params)
 
     respond_to do |format|
@@ -40,8 +35,6 @@ class PartiesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /parties/1
-  # PATCH/PUT /parties/1.json
   def update
     respond_to do |format|
       if @party.update(party_params)
@@ -54,8 +47,6 @@ class PartiesController < ApplicationController
     end
   end
 
-  # DELETE /parties/1
-  # DELETE /parties/1.json
   def destroy
     @party.destroy
     respond_to do |format|
@@ -65,12 +56,11 @@ class PartiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_party
       @party = Party.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def party_params
       params.require(:party).permit(:host_id, :date, :duration, :canceled, :user_id)
     end
