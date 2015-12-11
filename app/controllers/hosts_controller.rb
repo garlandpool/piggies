@@ -3,10 +3,13 @@ class HostsController < ApplicationController
 
   def index
     @hosts = Host.joins(:user).where(:users => { :id => current_user.id })
+    # @info = Host.joins(:user).where(:users => { :id => current_user.id }).to_sql
   end
 
   def show
   end
+
+
 
   def new
     @host = current_user.hosts.build 

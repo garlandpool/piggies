@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209213301) do
+ActiveRecord::Schema.define(version: 20151210174121) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "first"
@@ -58,6 +58,18 @@ ActiveRecord::Schema.define(version: 20151209213301) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "parties", force: :cascade do |t|
+    t.integer  "host_id"
+    t.datetime "date"
+    t.integer  "duration"
+    t.boolean  "canceled"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "parties", ["user_id"], name: "index_parties_on_user_id"
 
   create_table "stories", force: :cascade do |t|
     t.string   "intro"

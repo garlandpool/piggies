@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <p>
+          <strong>Host:</strong>
+          <%= @party.host.first %><%= @party.host.last %> (<%= @party.host_id %>)
+        </p>
+
+        <p>
+          <strong>Date:</strong>
+          <%= @party.date %>
+        </p>
+
+        <p>
+          <strong>Duration:</strong>
+          <%= @party.duration %> hours
+        </p>
+
+        <p>
+          <strong>Canceled:</strong>
+          <%= @party.canceled %>
+        </p>
+
+        <p>
+          <strong>User:</strong>
+          <%= @party.user.email %>
+        </p>
+
+        <%= link_to 'Edit', edit_party_path(@party), class: "btn btn-sm btn-default" %> 
+        <%= link_to 'Back', parties_path, class: "btn btn-sm btn-default" %>
+
+    </div>
+  </div>
+</div>
+<br/>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  host_id: 1
+  date: 2015-12-10 09:41:21
+  duration: 1
+  canceled: false
+  user_id: 
+
+two:
+  host_id: 1
+  date: 2015-12-10 09:41:21
+  duration: 1
+  canceled: false
+  user_id: 

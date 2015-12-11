@@ -4,44 +4,38 @@
   <!-- ================================== -->
   <div class="row">
     <div class="col-sm-12">
-      <h2 class="section-heading wow animated pulse animated">Your Hosts</h2>
+      <h2 class="section-heading wow animated pulse animated">Your parties</h2>
     </div>
   </div>
   
 <hr/>
   <!-- ================================== -->
-  <% @hosts.each do |host| %>
+  <% @parties.each do |party| %>
   <div class="row">
-    <div class="col-sm-2">
-      <strong><%= host.first %> <%= host.last %></strong>
+    <div class="col-sm-1">
+      <%= party.host_id %>
     </div>
     <div class="col-sm-2">
-      <%= host.street %>
+      <%= party.host.first %> <%=party.host.last %>
     </div>
-
-
-
-<!--     <div class="col-sm-2">
-      <%= @info %>
-    </div> -->
-
-
-
     <div class="col-sm-2">
-      <%= host.city %>, <%= host.state %>
+      <%= party.date %>
+    </div>
+    <div class="col-sm-2">
+      <%= party.duration %> hours
     </div>
     <div class="col-sm-1">
-      <%= host.zipcode %>
+      <%= party.canceled %>
     </div>
     <div class="col-sm-1">
-      <%= host.user_id %>
+      <%= party.user_id %>
     </div>
 
     <% if user_signed_in? %>
       <div class="col-sm-3">
-        <%= link_to 'Show', host, class: "btn btn-sm btn-default" %>
-        <%= link_to 'Edit', edit_host_path(host), class: "btn btn-sm btn-default" %>
-        <%= link_to 'Destroy', host, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %>
+        <%= link_to 'Show', party, class: "btn btn-sm btn-default" %>
+        <%= link_to 'Edit', edit_party_path(party), class: "btn btn-sm btn-default" %>
+        <%= link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %>
       </div>
     <% end %>
   </div>
@@ -54,7 +48,7 @@
   <% if user_signed_in? %>
     <div class="row">
       <div class="col-sm-12">
-        <h5><%= link_to 'New host', new_host_path, class: "btn btn-sm btn-default" %></h5>
+        <h5><%= link_to 'New party', new_party_path, class: "btn btn-sm btn-default" %></h5>
       </div>
     </div>
   <% end %>
