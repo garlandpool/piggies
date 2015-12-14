@@ -16,6 +16,14 @@ class ArtistsController < ApplicationController
       @user_email = User.find_by(params[:email]).email
       @artists = Job.where(email: @user_email).order("created_at DESC")
     end
+
+###################  SEARCH CODE  ############################# 
+    if params[:search]
+      @artists = Artist.search(params[:search]).order("created_at DESC")
+    else
+      @artists = Artist.order("created_at DESC")
+    end
+
   end
 
 # =============================

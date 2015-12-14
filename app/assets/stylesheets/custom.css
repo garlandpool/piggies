@@ -98,7 +98,9 @@ body {
 	max-height: 10px; 
 }
 
-
+.glyphicon.glyphicon-search {
+    font-size: 12px;
+}
 
 /*==============    THIS WORKS FOR GIVING BACKGROUND COLOR ON HOVER	   =================*/
 /*

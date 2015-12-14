@@ -1,19 +1,18 @@
-class Artist < ActiveRecord::Base
+class Zipcode < ActiveRecord::Base
 	belongs_to :user
-	has_many :zipcodes
+	belongs_to :artist
 
 # ##########################################
 # FROM A TUTORIAL AT  http://www.jorgecoca.com/buils-search-form-ruby-rails/
 
   # attr_accessible :zip
  
-  validates :first, presence: true, uniqueness: true
+  validates :zip, presence: true, uniqueness: true
  
   # It returns the zipcodes whose zips contain one or more words that form the query
   def self.search(query)
     # where(:zip, query) -> This would return an exact match of the query
-    where("first like ?", "%#{query}%")
-
+    where("zip like ?", "%#{query}%") 
   end
 
   # ########################################

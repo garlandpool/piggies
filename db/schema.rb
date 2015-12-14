@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210174121) do
+ActiveRecord::Schema.define(version: 20151212001750) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "first"
@@ -106,6 +106,14 @@ ActiveRecord::Schema.define(version: 20151210174121) do
     t.string   "body"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "zipcodes", force: :cascade do |t|
+    t.integer  "zip"
+    t.boolean  "visible"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
 end
