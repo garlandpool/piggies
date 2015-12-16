@@ -24,7 +24,9 @@
     <div class="row">
         <div class="col-sm-4">
             <span class="copyright-header">&copy; 2015 piggies+paws :: All rights reserved
-            <% if user_signed_in? %>
+            <% if admin_signed_in? %>
+                | <%= current_admin.email %> | <%= current_admin.id %>
+            <% elsif user_signed_in? %>
                 | <%= current_user.email %> | <%= current_user.id %>
             <% else %>
                 | Not logged in
@@ -44,10 +46,13 @@
         </div>
         <div class="col-sm-4">
             <ul class="list-inline quicklinks">
-                <li><a href="#">Privacy Policy</a>
-                </li>
-                <li><a href="#">Terms of Use</a>
-                </li>
+                <li><a href="#">Privacy Policy</a></li> |
+                <li><a href="#">Terms of Use</a></li> |
+                <% if admin_signed_in? %>
+                    <%= link_to "Logout", destroy_admin_session_path, method: :delete %>
+                <% else %>
+                    <%= link_to "Admin", {:controller => '/admins', :action => 'sign_in'} %>
+                <% end %>
             </ul>
         </div>
     </div>

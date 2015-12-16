@@ -1,14 +1,12 @@
 class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
 
-  # GET /artists
-  # GET /artists.json
   def index_ORIGINAL
     @artists = Artist.all.order("created_at DESC")
     @user = User.find_by_email!(params[@artists.email])
   end
 
-  def index
+  def index_BAKBAKBAKBAKBAKBAKBAKBAKBAKBAKBAKBAK
     if params[:email].blank?
       @artists = Artist.all.order("created_at DESC")
     else
@@ -26,39 +24,22 @@ class ArtistsController < ApplicationController
 
   end
 
-# =============================
-  def index_from_jobs
-    if params[:category].blank?
-      @jobs = Job.all.order("created_at DESC")
-    else
-      @category_id = Category.find_by(name: params[:category]).id
-      @jobs = Job.where(category_id: @category_id).order("created_at DESC")
-    end
-  end
-# =============================
 
-
-  # GET /artists/1
-  # GET /artists/1.json
   def show
+
   end
 
-  # GET /artists/new
   def new
-    @artist = Artist.new
+    # @artist = Artist.new
+    @artist = current_user.artist.build
   end
 
-  # GET /artists/1/edit
   def edit
-    #  EXPERIMENTAL LINE...PROBABLY DELETE LATER...
-    #  IT WOULD DEPEND ON ADDING user_id TO ARTISTS TABLE
-    # @artist.user_id = current_user.artist_id
   end
 
-  # POST /artists
-  # POST /artists.json
   def create
-    @artist = Artist.new(artist_params)
+    # @artist = Artist.new(artist_params)
+    @artist = current_user.artist.build(artist_params)
 
     respond_to do |format|
       if @artist.save
@@ -71,8 +52,6 @@ class ArtistsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /artists/1
-  # PATCH/PUT /artists/1.json
   def update
     respond_to do |format|
       if @artist.update(artist_params)
@@ -85,8 +64,6 @@ class ArtistsController < ApplicationController
     end
   end
 
-  # DELETE /artists/1
-  # DELETE /artists/1.json
   def destroy
     @artist.destroy
     respond_to do |format|
@@ -96,13 +73,13 @@ class ArtistsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_artist
       @artist = Artist.find(params[:id])
+      # @artists = Artist.find_by_id!(params[@artists.user_id])
+      # @artists = Artist.find_by_id!(params[user_id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def artist_params
-      params.require(:artist).permit(:first, :last, :title, :email, :address, :city, :state, :zipcode, :bday, :bmonth, :byear, :homephone, :cellphone, :officephone, :zipareas, :contract_day, :contract_month, :contract_year)
+      params.require(:artist).permit(:first, :last, :title, :email, :address, :city, :state, :zipcode, :bday, :bmonth, :byear, :homephone, :cellphone, :officephone, :zipareas, :contract_day, :contract_month, :contract_year, :user_id)
     end
 end

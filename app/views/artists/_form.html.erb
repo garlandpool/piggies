@@ -13,7 +13,7 @@
   <div class="row">
     <div class="col-sm-2">
       <div class="field">
-        <!-- <p><%= current_user.email %></p> -->
+
         <%= f.label :first %><br>
         <%= f.text_field :first, { class: 'form-control' } %>
       </div>
@@ -34,14 +34,14 @@
       <div class="col-sm-2">
         <div class="field">
           <%= f.label :email %><br>
-          <%= f.collection_select :email, User.all, :email, :email, {promt: "Choose an email" }, {class: "form-control"} %>
+          <%= f.collection_select :user_id, User.all, :id, :email, {prompt: "Choose an email" }, {class: "form-control"} %>
         </div>
       </div>
     <% else %>
       <div class="col-sm-2">
         <div class="field">
-          <%= f.label :email %><br>
-          <%= current_user.email %>
+          <%= f.label :user_id %><br>
+          <%= current_user.id %>
         </div>
       </div>
     <% end %>
@@ -151,9 +151,6 @@
 
   <div class="actions">
     <%= f.submit class: 'btn btn-primary' %>
-    <% if false %>
-      <%= f.submit class: 'btn btn-default' %>
-    <% end %>
   </div>
 
 

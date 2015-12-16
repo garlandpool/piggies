@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151212001750) do
+ActiveRecord::Schema.define(version: 20151216165637) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "admins", ["email"], name: "index_admins_on_email", unique: true
+  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
   create_table "artists", force: :cascade do |t|
     t.string   "first"
@@ -34,7 +52,10 @@ ActiveRecord::Schema.define(version: 20151212001750) do
     t.integer  "contract_year"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "user_id"
   end
+
+  add_index "artists", ["user_id"], name: "index_artists_on_user_id"
 
   create_table "hosts", force: :cascade do |t|
     t.string   "first"
@@ -95,6 +116,17 @@ ActiveRecord::Schema.define(version: 20151212001750) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
+    t.string   "first"
+    t.string   "last"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zipcode"
+    t.string   "title"
+    t.date     "contract_date"
+    t.date     "b_day"
+    t.string   "h_phone"
+    t.string   "c_phone"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

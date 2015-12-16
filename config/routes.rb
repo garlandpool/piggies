@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :admins
   resources :zipcodes
   resources :parties
   resources :hosts
@@ -8,21 +9,15 @@ Rails.application.routes.draw do
   resources :stories
   resources :artists
   devise_for :users
-  get 'gallery/index'
-
-  get 'welcome/homepage'
 
   root "welcome#homepage"
 
+  get 'gallery/index'
+  get 'welcome/homepage'
   get 'contact/index'
   get 'gallery/index'
 
-
-
-
-
-
-  
+  # devise_for :users, :controllers => {:registrations => 'users'}
 
   match ':controller(/:action(/:id))', :via => :get
   # The priority is based upon order of creation: first created -> highest priority.
