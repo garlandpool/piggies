@@ -1,9 +1,14 @@
 class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
 
-  def index_ORIGINAL
+  def list
+    @users = User.all.order("created_at DESC")
+    # @user = User.find_by_email!(params[@artists.email])
+  end
+
+  def index
     @artists = Artist.all.order("created_at DESC")
-    @user = User.find_by_email!(params[@artists.email])
+    # @user = User.find_by_email!(params[@artists.email])
   end
 
   def index_BAKBAKBAKBAKBAKBAKBAKBAKBAKBAKBAKBAK

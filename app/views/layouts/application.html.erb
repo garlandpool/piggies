@@ -62,13 +62,14 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <li><%= link_to "Our Story", {:controller => 'stories', :action => 'index'} %></li>
-                    <li><%= link_to "What We Do", {:controller => 'whats', :action => 'index'} %></li>
-                    <li><%= link_to "How It Works", {:controller => 'hows', :action => 'index'} %></li>
-                    <li><%= link_to "gallery", {:controller => 'gallery', :action => 'index'} %></li>
-                    <li><%= link_to "host a party", {:controller => 'artists', :action => 'index'} %></li>
-                    <li><%= link_to "join our team", {:controller => 'team', :action => 'index'} %></li>
-                    <li><%= link_to "media", {:controller => 'media', :action => 'index'} %></li>
+                    <li><%= link_to "Our Story", {:controller => '/stories', :action => 'index'} %></li>
+                    <li><%= link_to "What We Do", {:controller => '/whats', :action => 'index'} %></li>
+                    <li><%= link_to "How It Works", {:controller => '/hows', :action => 'index'} %></li>
+                    <li><%= link_to "gallery", {:controller => '/gallery', :action => 'index'} %></li>
+                    <li><%= link_to "host a party", {:controller => '/artists', :action => 'index'} %></li>
+                    <li><%= link_to "List", {:controller => '/users', :action => 'index'} %></li>
+                    <li><%= link_to "join our team", {:controller => '/team', :action => 'index'} %></li>
+                    <li><%= link_to "media", {:controller => '/media', :action => 'index'} %></li>
 
                     <% if user_signed_in? %>
                         <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>

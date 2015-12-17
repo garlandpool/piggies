@@ -1,6 +1,5 @@
 class Zipcode < ActiveRecord::Base
 	belongs_to :user
-	belongs_to :artist
 
 # ##########################################
 # FROM A TUTORIAL AT  http://www.jorgecoca.com/buils-search-form-ruby-rails/

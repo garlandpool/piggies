@@ -8,14 +8,21 @@ Rails.application.routes.draw do
   resources :whats
   resources :stories
   resources :artists
-  devise_for :users
+  # devise_for :users
+  devise_for :users, controllers: { sessions: "users/sessions" }
+
+  devise_scope :user do
+    get "/users", to: "users/sessions#index"
+    get '/users/:id', :to => 'users#show', :as => :user
+  end
+
 
   root "welcome#homepage"
 
   get 'gallery/index'
   get 'welcome/homepage'
   get 'contact/index'
-  get 'gallery/index'
+  get 'users/list' => 'artists#list'
 
   # devise_for :users, :controllers => {:registrations => 'users'}
 
