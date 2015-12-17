@@ -1,6 +1,4 @@
 class Artist < ActiveRecord::Base
-	belongs_to :user
-  has_many :zipcodes
 	# has_many :zipcodes, :dependent => :destroy
 
 # ##########################################

@@ -14,7 +14,7 @@
     <div class="col-sm-2">
       <strong>First Last (ID)</strong>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-3">
       <strong>DateTime</strong>
     </div>
     <div class="col-sm-1">
@@ -22,9 +22,6 @@
     </div>
     <div class="col-sm-1">
       <strong>Canceled?</strong>
-    </div>
-    <div class="col-sm-2">
-      <strong>Artist</strong>
     </div>
     <hr/>
   </div>
@@ -39,7 +36,7 @@ KEY LEARNING POINT:  Learned how to reach through the associated models to grab 
 ###########################################################  -->
       <%= party.host.first %> <%=party.host.last %> (<%= party.host_id %>)
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-3">
       <%= party.date %>
     </div>
     <div class="col-sm-1">
@@ -47,9 +44,6 @@ KEY LEARNING POINT:  Learned how to reach through the associated models to grab 
     </div>
     <div class="col-sm-1">
       <%= party.canceled %>
-    </div>
-    <div class="col-sm-2">
-      <%= party.user.email %> (<%= party.user_id %>)
     </div>
 
     <% if user_signed_in? %>

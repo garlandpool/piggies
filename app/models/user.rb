@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-	has_one :artist
 	has_many :hosts
 	has_many :parties
 	has_many :zipcodes
@@ -7,5 +6,10 @@ class User < ActiveRecord::Base
 	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable, :registerable,
 	     :recoverable, :rememberable, :trackable, :validatable
+
+	def self.search(query)
+		# where(:title, query) -> This would return an exact match of the query
+		where("first like ?", "%#{query}%") 
+	end
 
 end

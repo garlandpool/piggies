@@ -22,26 +22,8 @@
       <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
     </div>
 
-    <% if false %>
-        <%= f.fields_for :artist do |artist_form| %>
-          <h5><%= artist_form.label :first %></h5>
-          <p><%= artist_form.text_field :first, class: 'form-control' %></p>
-
-          <h5><%= artist_form.label :last %></h5>
-          <p><%= artist_form.text_field :last, class: 'form-control' %></p>
-        <% end %>
-    <% end %>
-
     <div class="actions">
-
-
-
-
-      <% if admin_signed_in? %>
-      <% end %>
-
-        <%= f.submit "Sign up", class: "btn btn-sm btn-default"  %>
-
+      <%= f.submit "Sign up", class: "btn btn-sm btn-default" %>
     </div>
   <% end %>
 

@@ -1,0 +1,68 @@
+<div class="container">
+    <h3 class="section-subheading text-muted wow animated pulse animated">
+      Find an artist near you.  Email them to set up a gallery.  
+    </h3>
+
+  <!-- ============================================= -->
+  <!-- =============  SEARCH CODE  ================= -->
+  <!-- ============================================= -->
+<div class="row">
+	<div class="col-sm-4">
+		<%= form_tag(users_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+			<div class="input-append">
+			<%= text_field_tag :search, params[:search], class: "span2", placeholder: "Search By Name" %>
+			<button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+			</div>
+		<% end %>
+	</div>
+	<div class="col-sm-4">
+		<%= form_tag(users_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+			<div class="input-append">
+			<%= text_field_tag :zip_search, params[:zip_search], class: "span2", placeholder: "Search By Zipcode" %>
+			<button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+			</div>
+		<% end %>
+	</div>
+</div>
+<hr/>
+  <!-- ============================================= -->
+  <!-- ============================================= -->
+  <!-- ============================================= -->
+<div class="row">
+
+	<% @users.each do |user| %>
+		<div class="row">
+		<div class="col-sm-2">
+		  <strong><%= user.first %> <%= user.last %></strong>
+		</div>
+		<div class="col-sm-1">
+		  <%= mail_to user.email, class: "fa fa-envelope" do %>
+		  <% end %>
+		</div>
+		<div class="col-sm-2">
+		  <%= user.city %>, <%= user.state %>
+		</div>
+
+	    <% if false %>
+		    <% if user_signed_in? %>
+		      <% if current_user.try(:admin?) || current_user.email == user.email %>
+		        <div class="col-sm-3">
+		          <%= link_to 'Show', user, class: "btn btn-sm btn-default" %>
+		          <%= link_to 'Edit', edit_user_path(user), class: "btn btn-sm btn-default" %>
+		          <% if current_user.try(:admin?) %>
+		            <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %>
+		          <% end %>
+		        </div>
+		      <% end %>
+		    <% end %>
+	    <% end %>
+
+
+
+
+	  </div>
+	  <hr/>
+	  <% end %>
+  </div>
+
+</div>
