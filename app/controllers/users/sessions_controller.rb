@@ -10,7 +10,6 @@ class Users::SessionsController < Devise::SessionsController
     else
       @users = User.order("created_at DESC")
     end
-
   end
 
 
@@ -35,8 +34,4 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.for(:sign_in) << :attribute
   # end
-<<<<<<< HEAD
 end
-=======
-end
->>>>>>> 9a7ba036984ee6ae836fa40302a12e85546a632f
