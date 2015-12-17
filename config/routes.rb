@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :artists
   # devise_for :users
   devise_for :users, controllers: { sessions: "users/sessions" }
+  
 
   devise_scope :user do
     get "/users", to: "users/sessions#index"
@@ -17,10 +18,9 @@ Rails.application.routes.draw do
   end
 
 
-  root "welcome#homepage"
+  root "welcome#index"
 
   get 'gallery/index'
-  get 'welcome/homepage'
   get 'contact/index'
   get 'users/list' => 'artists#list'
 

@@ -6,7 +6,7 @@ class Zipcode < ActiveRecord::Base
 
   # attr_accessible :zip
  
-  validates :zip, presence: true, uniqueness: true
+  validates :zip, presence: true
  
   # It returns the zipcodes whose zips contain one or more words that form the query
   def self.search(query)

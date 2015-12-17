@@ -7,7 +7,6 @@ class ZipcodesController < ApplicationController
 ########################################################### 
     @zipcodes = Zipcode.joins(:user).where(:users => { :id => current_user.id })
 
-
 ###################  SEARCH CODE  ############################# 
     if params[:search]
       @zipcodes = Zipcode.search(params[:search]).order("created_at DESC")
