@@ -1,5 +1,6 @@
 <br/>
     <div class="container">
+        <div class="col-sm-5">
         <% if false %>
         	<% if user_signed_in? && !artist_has_profile? %>
                 <%= link_to "Create Profile", {:controller => 'artists', :action => 'new', :id => current_user.id}, class: "btn btn-sm btn-default" %>
@@ -11,7 +12,9 @@
 	        <%= link_to "Manage Hosts", {:controller => '/hosts', :action => 'index'}, class: "btn btn-sm btn-default" %>
 	        <%= link_to "Manage Parties", {:controller => '/parties', :action => 'index'}, class: "btn btn-sm btn-default" %>
 	        <%= link_to "Manage Zipcodes", {:controller => '/zipcodes', :action => 'index'}, class: "btn btn-sm btn-default" %>
-        
-        <span>Logged in as: <%= current_user.email %> (<%= current_user.id %>)</span>
+        </div>
+        <div class="col-sm-4">
+            <h5>Welcome <%= current_user.first %> <%= current_user.last %></h5>
+        </div>
     </div>
 <br/>

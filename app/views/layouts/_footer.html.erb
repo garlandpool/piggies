@@ -27,7 +27,7 @@
             <% if admin_signed_in? %>
                 | <%= current_admin.email %> | <%= current_admin.id %>
             <% elsif user_signed_in? %>
-                | <%= current_user.email %> | <%= current_user.id %>
+                | Welcome <%= current_user.first %> <%= current_user.last %>
             <% else %>
                 | Not logged in
             <% end %>

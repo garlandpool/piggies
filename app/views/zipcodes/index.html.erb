@@ -6,27 +6,6 @@
     </div>
   </div>
 
-
-
-  <!-- ================================== -->
-  <%= form_tag(zipcodes_path, :method => "get", class: "navbar-form", id: "search-form") do %>
-    <div class="input-append">
-      <%= text_field_tag :search, params[:search], class: "span2", placeholder: "Search Zipcodes" %>
-      <!-- In order to have the "search" icon in the button, we need to use plain HTML instead 
-           of using a Rails form helper -->
-      <button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-    </div>
-  <% end %>
-
-<% @zipcodes.each do |zipcode| %>
-  <div class="article">
-    <!-- <h5 class="article-title"><%= link_to zipcode.zip, zipcode %></h5> -->
-    <h5 class="article-title"><%= link_to zipcode.zip, {:controller => 'artists', :action => 'show', :id => @artist} %></h5>
-  </div>
-<% end %>
-  <!-- ================================== -->
-
-
 <hr/>
 
   <div class="row">
@@ -35,9 +14,6 @@
     </div>
     <div class="col-sm-2">
       <strong>Artist</strong>
-    </div>
-    <div class="col-sm-1">
-      <strong>Visible</strong>
     </div>
     <div class="col-sm-3">
       <strong></strong>
@@ -51,13 +27,7 @@
           <%= zipcode.zip %>
         </div>
         <div class="col-sm-2">
-          <% if false %>
-            <%= zipcode.artist.first %> <%= zipcode.artist.last %> 
-          <% end %>
           (<%= zipcode.user_id %>)
-        </div>
-        <div class="col-sm-1">
-          <%= zipcode.visible %>
         </div>
         <% if user_signed_in? %>
           <div class="col-sm-3">

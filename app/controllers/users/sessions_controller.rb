@@ -2,23 +2,16 @@ class Users::SessionsController < Devise::SessionsController
 # before_filter :configure_sign_in_params, only: [:create]
 
   def index
-    # @users = User.all.order("created_at DESC")
-  ###################  SEARCH CODE  ############################# 
+    ###################  SEARCH CODE  ############################# 
     if params[:search]
       @users = User.search(params[:search]).order("created_at DESC")
-      @zipcode = Zipcode.where(:zip => '97526')
     elsif params[:zip_search]
-      @users = User.search(params[:search]).order("created_at DESC")
-      # @zipcode = Zipcodes.first
-      # @users = User.search(params[:zip_search]).where(params[:zip_search] => @zipcode.zip)
-      # @zipcode = Zipcodes.all(:joins => :user, :conditions => { :users => { :id => :user_id } })
-      @zipcode = Zipcode.where(:zip => '97526')
+      @users = User.joins(:zipcodes).where( :zipcodes => {:zip => params[:zip_search]})
     else
       @users = User.order("created_at DESC")
     end
+
   end
-
-
 
 
   # GET /resource/sign_in
