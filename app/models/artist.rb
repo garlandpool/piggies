@@ -1,5 +1,4 @@
 class Artist < ActiveRecord::Base
-	# has_many :zipcodes, :dependent => :destroy
 
 # ##########################################
 # FROM A TUTORIAL AT  http://www.jorgecoca.com/buils-search-form-ruby-rails/
