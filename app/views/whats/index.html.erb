@@ -42,7 +42,6 @@
                 <% end %> 
               </div>  
             </p>
-            
           </div>
         </div> 
     <% end %>  
@@ -52,7 +51,7 @@
   </div>
   <hr>
   <div class="container">
-    <% if current_user.try(:admin?) %>
+    <% if admin_signed_in? %>
       <%= link_to 'New Item', new_what_path, class: "btn btn-default btn-lrg" %>
     <% end %>
   </div>
