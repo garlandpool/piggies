@@ -10,7 +10,6 @@ class ZipcodesController < ApplicationController
 ###################  SEARCH CODE  ############################# 
     if params[:search]
       @zipcodes = Zipcode.search(params[:search]).order("created_at DESC")
-      @artist = Artist.where(:user_id => artists.user_id)
     else
       # @zipcodes = Zipcode.order("created_at DESC")
     end
