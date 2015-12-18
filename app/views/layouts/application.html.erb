@@ -70,13 +70,13 @@
                     <li><%= link_to "join our team", {:controller => '/team', :action => 'index'} %></li>
                     <li><%= link_to "media", {:controller => '/media', :action => 'index'} %></li>
                     
-<% if !admin_signed_in? %>
+
                     <% if user_signed_in? %>
                         <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
                     <% else %>
                         <li><%= link_to "Login", new_user_session_path %></li>
                     <% end %>
-<% end %>
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

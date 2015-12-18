@@ -38,8 +38,8 @@
                 <%= story.signature %></br>
                 <%= story.status %></br>
                 <%= story.company %></br>
-                <% if current_user.try(:admin?) %>
-                  <strong>Currently logged in as <%= current_user.email %></strong>
+                <% if admin_signed_in? %>
+                  <strong>Currently logged in as <%= current_admin.email %></strong>
                   <p>
                   <%= link_to 'Show', story, class: "btn btn-default btn-sm" %>
                   <%= link_to 'Edit', edit_story_path(story), class: "btn btn-default btn-sm" %>
@@ -50,7 +50,7 @@
             </p>
             <hr/>
             <p class="text-muted">
-              <% if current_user.try(:admin?) %>
+              <% if admin_signed_in? %>
                 <%= link_to 'New Story', new_story_path, class: "btn btn-default btn-sm" %>
               <% end %>
             </p>

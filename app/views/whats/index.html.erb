@@ -34,7 +34,7 @@
             <p class="text-muted">
               <%= what.body %>
               <div class="col-sm-12 text-center">
-                <% if current_user.try(:admin?) %>
+                <% if admin_signed_in? %>
                   <%= link_to 'Show', what, class: "btn btn-default btn-sm" %>
                   <%= link_to 'Edit', edit_what_path(what), class: "btn btn-default btn-sm" %>
                   <%= link_to 'Destroy', what, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-sm" %>

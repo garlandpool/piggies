@@ -26,7 +26,7 @@
             <p class="text-muted">
               <%= how.body %>
               <div class="col-sm-12 text-center">
-                <% if current_user.try(:admin?) %>
+                <% if admin_signed_in? %>
                   <%= link_to 'Show', how, class: "btn btn-default btn-sm" %>
                   <%= link_to 'Edit', edit_how_path(how), class: "btn btn-default btn-sm" %>
                   <%= link_to 'Destroy', how, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-sm" %>
@@ -41,7 +41,7 @@
   </div>
   <hr>
   <div class="container">
-    <% if current_user.try(:admin?) %>
+    <% if admin_signed_in? %>
       <%= link_to 'New Item', new_how_path, class: "btn btn-default btn-lrg" %>
     <% end %> 
   </div>
