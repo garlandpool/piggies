@@ -14,15 +14,17 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get "/users", to: "users/sessions#index"
-    get '/users/:id', :to => 'users#show', :as => :user
+    get '/users/:id', :to => 'users/registrations#edit', :as => :user
   end
 
 
-  root "welcome#index"
+  root :to => "welcome#index"
 
   get 'gallery/index'
   get 'contact/index'
   get 'users/list' => 'artists#list'
+
+  # match "users/show" :to => "users#show" :via => :get
 
   # devise_for :users, :controllers => {:registrations => 'users'}
 

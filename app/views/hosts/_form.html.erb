@@ -54,7 +54,9 @@
       </div>
       <div class="field">
         <%= f.label :user_id %><br>
-        <%= f.number_field :user_id, { class: 'form-control' } %>
+        <!-- ########################################################### 
+        KEY LEARNING POINT:  Learned how to just display text that can't be edited, even though it shows up in the form.###########################################################  -->
+        <%= f.object.user_id %>
       </div>
 
       <div class="actions">
