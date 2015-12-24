@@ -79,25 +79,25 @@ Rails.application.configure do
 
 
 ##### https://rubyonrailshelp.wordpress.com/2014/01/02/setting-up-mailer-using-devise-for-forgot-password/
-config.action_mailer.default_url_options = { :host => 'yoursite.herokuapp.com' }
+config.action_mailer.default_url_options = { :host => 'immense-shore-4696.herokuapp.com' }
 
-Rails.application.routes.default_url_options[:host] = 'yoursite.herokuapp.com'
+Rails.application.routes.default_url_options[:host] = 'immense-shore-4696.herokuapp.com'
 
+###############   YAY!  This worked after I turned off the secure apps thing in google!   ################
 config.action_mailer.delivery_method = :smtp
-config.action_mailer.perform_deliveries = true
-config.action_mailer.raise_delivery_errors = false
-config.action_mailer.default :charset => "utf-8"
-
-config.action_mailer.smtp_settings = {
-  address: "smtp.gmail.com",
-  port: 587,
-  domain: ENV["GMAIL_DOMAIN"],
-  authentication: "plain",
-  enable_starttls_auto: true,
-  user_name: ENV["GMAIL_USERNAME"],
-  password: ENV["GMAIL_PASSWORD"]
-}
-
+  config.action_mailer.default_url_options = { host:'localhost', port: '3000' }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.smtp_settings = {
+      :address => "smtp.gmail.com",
+      :port => 587,
+      :domain => 'localhost:3000',
+      :user_name => "rsoguitarfred@gmail.com",
+      :password => "Fr3der#c",
+      :authentication => :plain,
+      :enable_starttls_auto => true
+  }
 
     # config.action_mailer.delivery_method = :smtp
     # config.action_mailer.smtp_settings = {
