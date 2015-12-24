@@ -38,5 +38,73 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  ####################### REDUNDANT ########################
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.raise_delivery_errors = true
+
+
+###############   YAY!  This worked after I turned off the secure apps thing in google!   ################
+config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host:'localhost', port: '3000' }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.smtp_settings = {
+      :address => "smtp.gmail.com",
+      :port => 587,
+      :domain => 'localhost:3000',
+      :user_name => "rsoguitarfred@gmail.com",
+      :password => "Fr3der#c",
+      :authentication => :plain,
+      :enable_starttls_auto => true
+  }
+
+
+
+##### https://rubyonrailshelp.wordpress.com/2014/01/02/setting-up-mailer-using-devise-for-forgot-password/
+# config.action_mailer.delivery_method = :smtp
+
+# config.action_mailer.smtp_settings = {
+#   address: "smtp.gmail.com",
+#   port: 587,
+#   # domain: ENV["GMAIL_DOMAIN"],
+#   authentication: "plain",
+#   enable_starttls_auto: true,
+#   # user_name: ENV["GMAIL_USERNAME"],
+#   # password: ENV["GMAIL_PASSWORD"]
+#   domain: "smtp.gmail.com",
+#   user_name: "rsoguitarfred@gmail.com",
+#   password: "Fr3der#c"
+# }
+
+
+########################################################
+
+    # config.action_mailer.delivery_method = :smtp
+    # config.action_mailer.smtp_settings = {
+    #   address: "smtp.gmail.com",
+    #   port: 587,
+    #   authentication: "plain",
+    #   enable_starttls_auto: true,
+    #   user_name: "rsoguitarfred@gmail.com",
+    #   password: "Fr3der#c"
+    # }
+
+########################################################
+
+    # ActionMailer::Base.delivery_method = :sendmail
+
+    # ActionMailer::Base.sendmail_settings = { 
+    #   :address => "smtp.gmail.com",
+    #   :port => "587", 
+    #   :domain => "gmail.com", 
+    #   :user_name => "rsoguitarfred@gmail.com", 
+    #   :password => "Fr3der#c", 
+    #   :authentication => "plain", 
+    #   :enable_starttls_auto => true 
+    # }
+
 end

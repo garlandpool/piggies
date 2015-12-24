@@ -24,6 +24,10 @@ Rails.application.routes.draw do
   get 'contact/index'
   get 'users/list' => 'artists#list'
 
+# This block has to do with the auth/facebook feature.
+  get 'auth/:provider', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
   # match "users/show" :to => "users#show" :via => :get
 
   # devise_for :users, :controllers => {:registrations => 'users'}

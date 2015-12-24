@@ -1,1 +1,0 @@
-json.extract! @artist, :id, :first, :last, :title, :email, :address, :city, :state, :zipcode, :bday, :bmonth, :byear, :homephone, :cellphone, :officephone, :zipareas, :contract_day, :contract_month, :contract_year, :created_at, :updated_at

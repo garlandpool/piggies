@@ -17,6 +17,7 @@
     <%= csrf_meta_tags %>
     <% end %>
 
+<!-- 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/theme.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -27,8 +28,22 @@
     <link href="css/flexslider.css" rel="stylesheet">
     <link href="css/jquery.bxslider.css" rel="stylesheet">
     <link href="css/layerslider.css" rel="stylesheet">
-
     <link href="css/custom.css" rel="stylesheet">
+ -->
+ 
+    <!-- ###################  REWIRED  ###################### -->
+    <link href="/assets/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/theme.css" rel="stylesheet">
+    <link href="/assets/style.css" rel="stylesheet">
+    <link href="/assets/animate.css" rel="stylesheet">
+    <link href="/assets/responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/icons/favicon.ico">
+    <link href="/assets/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/flexslider.css" rel="stylesheet">
+    <link href="/assets/jquery.bxslider.css" rel="stylesheet">
+    <link href="/assets/layerslider.css" rel="stylesheet">
+    <link href="/assets/custom.css" rel="stylesheet">
+    <!-- ###################  REWIRED  ###################### -->
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
@@ -43,6 +58,25 @@
 </head>
 
 <body id="page-top" class="index">
+<!-- ######################################### -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1230312190335458',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<!-- ######################################### -->
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
