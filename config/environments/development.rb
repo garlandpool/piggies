@@ -64,47 +64,4 @@ config.action_mailer.delivery_method = :smtp
 
 
 
-##### https://rubyonrailshelp.wordpress.com/2014/01/02/setting-up-mailer-using-devise-for-forgot-password/
-# config.action_mailer.delivery_method = :smtp
-
-# config.action_mailer.smtp_settings = {
-#   address: "smtp.gmail.com",
-#   port: 587,
-#   # domain: ENV["GMAIL_DOMAIN"],
-#   authentication: "plain",
-#   enable_starttls_auto: true,
-#   # user_name: ENV["GMAIL_USERNAME"],
-#   # password: ENV["GMAIL_PASSWORD"]
-#   domain: "smtp.gmail.com",
-#   user_name: "rsoguitarfred@gmail.com",
-#   password: "Fr3der#c"
-# }
-
-
-########################################################
-
-    # config.action_mailer.delivery_method = :smtp
-    # config.action_mailer.smtp_settings = {
-    #   address: "smtp.gmail.com",
-    #   port: 587,
-    #   authentication: "plain",
-    #   enable_starttls_auto: true,
-    #   user_name: "rsoguitarfred@gmail.com",
-    #   password: "Fr3der#c"
-    # }
-
-########################################################
-
-    # ActionMailer::Base.delivery_method = :sendmail
-
-    # ActionMailer::Base.sendmail_settings = { 
-    #   :address => "smtp.gmail.com",
-    #   :port => "587", 
-    #   :domain => "gmail.com", 
-    #   :user_name => "rsoguitarfred@gmail.com", 
-    #   :password => "Fr3der#c", 
-    #   :authentication => "plain", 
-    #   :enable_starttls_auto => true 
-    # }
-
 end
