@@ -39,6 +39,15 @@
 			<div class="col-sm-2">
 			  <%= user.city %>, <%= user.state %>
 			</div>
+			<div class="col-sm-4">
+				<%= @zipcodes %>
+				<% if false %>
+					<% @zipcodes.each do |zipcode| %>
+						<%= zipcode.zip %>
+					<% end %>
+				<% end %>
+			</div>
+
 		</div>
 		<hr/>
 		<% end %>
