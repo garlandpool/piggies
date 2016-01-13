@@ -13,6 +13,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 3.5', '>= 3.5.2'
 # gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'omniauth-facebook', '~> 3.0'
+<<<<<<< HEAD
+=======
+
+group :development, :test do
+	gem 'foreman'
+end
+>>>>>>> 9baa6e5d7d159e3efa1ba586880d4d4d3d82564e
 
 group :development do
 	gem 'sqlite3'

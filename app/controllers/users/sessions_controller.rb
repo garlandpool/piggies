@@ -1,7 +1,7 @@
 class Users::SessionsController < Devise::SessionsController
 # before_filter :configure_sign_in_params, only: [:create]
 
-  def index
+  def index_ORIGINAL_WORKING
     ###################  SEARCH CODE  ############################# 
     if params[:search]
       @users = User.search(params[:search]).order("created_at DESC")
@@ -9,6 +9,25 @@ class Users::SessionsController < Devise::SessionsController
       @users = User.joins(:zipcodes).where( :zipcodes => {:zip => params[:zip_search]})
     else
       @users = User.order("created_at DESC")
+    end
+  end
+
+  def index
+    ###################  SEARCH CODE  ############################# 
+    if params[:search]
+      @users = User.search(params[:search]).order("created_at DESC")
+    elsif params[:zip_search]
+      if User.joins(:zipcodes).where( :zipcodes => {:zip => params[:zip_search]}).empty?
+        @msg = "No artists are currently serving the #{params[:zip_search]} area.  Please email Jennifer Thomas to discuss options that might work for you."
+        @users = User.joins(:zipcodes).where( :zipcodes => {:zip => '85350'})
+      else
+        @users = User.joins(:zipcodes).where( :zipcodes => {:zip => params[:zip_search]})
+      end
+    else
+      @users = User.order("created_at DESC")
+      # @zips = User.joins(:zipcodes).where( :zipcodes => {:zip => params[:zip_search]})
+      # @zipcodes = Zipcode.joins(:user).where( :users => { :id => :user_id })
+      # @zipcodes = Zipcode.joins(:user).where( :users => { :id => :user_id }).to_sql
     end
   end
 

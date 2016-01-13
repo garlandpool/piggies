@@ -76,4 +76,27 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+
+##### https://rubyonrailshelp.wordpress.com/2014/01/02/setting-up-mailer-using-devise-for-forgot-password/
+config.action_mailer.default_url_options = { :host => 'immense-shore-4696.herokuapp.com' }
+
+Rails.application.routes.default_url_options[:host] = 'immense-shore-4696.herokuapp.com'
+
+###############   YAY!  This worked after I turned off the secure apps thing in google!   ################
+config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.default_url_options = { host:'localhost', port: '3000' }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.smtp_settings = {
+      :address => "smtp.gmail.com",
+      :port => 587,
+      :domain => 'immense-shore-4696.herokuapp.com',
+      :user_name => "rsoguitarfred@gmail.com",
+      :password => "Fr3der#c",
+      :authentication => :plain,
+      :enable_starttls_auto => true
+  }
+
 end
