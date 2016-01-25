@@ -62,11 +62,10 @@ GEM
     execjs (2.6.0)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
-<<<<<<< HEAD
+
 =======
     foreman (0.78.0)
       thor (~> 0.19.1)
->>>>>>> 9baa6e5d7d159e3efa1ba586880d4d4d3d82564e
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashie (3.4.3)
